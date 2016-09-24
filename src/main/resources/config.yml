@@ -1,0 +1,24 @@
+# KitPvP Configuration
+# By dmulloy2
+
+world: "kitpvp"
+
+spawnRegion: "spawn"
+
+defaultKit: "leather"
+
+kitSelector: "COMPASS, 1, name:&9&l>_&4&lKit_Selector_&9&l<"
+
+gui:
+  kitSelection:
+    title: "&b&lKit Selection"
+    size: -1
+  kitConfirm:
+    title: "&b&lPreview Kit: &9&l%k"
+
+forceRespawn: true
+
+messages:
+  prefix: "&8&l[&b&lKitPvP&8&l] &8» &e "
+
+permissionPrefix: "kitpvp.kit."

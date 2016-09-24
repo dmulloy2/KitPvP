@@ -1,0 +1,27 @@
+kits:
+  "leather":
+    slot: 0
+    display: "&6&lLeather"
+    icon: "LEATHER_HELMET, 1"
+    items:
+      - "WOOD_SWORD, 1"
+    armor:
+      - "LEATHER_HELMET, 1"
+  "iron":
+    slot: 1
+    display: "&7&lIron"
+    icon: "IRON_HELMET, 1"
+    items:
+      - "IRON_SWORD, 1"
+    armor:
+      - "IRON_HELMET, 1"
+    cost: 1000
+  "diamond":
+    slot: 2
+    display: "&b&lDiamond"
+    icon: "DIAMOND_HELMET, 1"
+    items:
+      - "DIAMOND_SWORD, 1"
+    armor:
+      - "DIAMOND_HELMET, 1"
+    rank: "Donor"

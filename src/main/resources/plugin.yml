@@ -1,0 +1,19 @@
+name: KitPvP
+main: net.dmulloy2.kitpvp.KitPvP
+author: dmulloy2
+version: ${project.version}
+depend: [ProtocolLib, Vault, WorldEdit, WorldGuard]
+
+commands:
+  kitpvp:
+    description: KitPvP base command
+    usage: /<command> <args>
+    aliases: [kpvp]
+
+permissions:
+  kitpvp.create.kit:
+    default: op
+  kitpvp.set.lobby:
+    default: op
+  kitpvp.reload:
+    default: op
