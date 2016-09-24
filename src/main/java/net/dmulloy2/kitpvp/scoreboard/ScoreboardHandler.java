@@ -54,8 +54,8 @@ public class ScoreboardHandler {
 				.displayName(FormatUtil.format("&b&l> &f{0} &b&l<", player.getName()))
 				.displaySlot(DisplaySlot.SIDEBAR)
 				.entryFormat(EntryFormat.ON_LINE)
-				.keyPrefix("&b&l> &7")
-				.valuePrefix(": &c")
+				.keyPrefix(FormatUtil.format("&e> &7"))
+				.valuePrefix(FormatUtil.format(": &c"))
 				.addEntry("Kills", data.getKills())
 				.addEntry("Deaths", data.getDeaths())
 				.addEntry("Streak", data.getStreak())
@@ -68,7 +68,7 @@ public class ScoreboardHandler {
 				builder.addEntry(leaderboard.get(index));
 			}
 
-			builder.addEntry("&7===================")
+			builder.addEntry("&7===================&7")
 				.addEntry("Your Ranking", data.getRank());	
 		}
 

@@ -19,6 +19,7 @@ import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -39,27 +40,39 @@ public class PlayerListener implements Listener {
 		plugin.getPlayerDataCache().getData(player);
 
 		String world = player.getWorld().getName().toLowerCase();
-		if (! world.equals(Config.world)) {
-			plugin.getScoreboardHandler().unregister(player);
-			return;
+		if (world.equals(Config.world)) {
+			plugin.getScoreboardHandler().update(player);
+			giveItems(player);
 		}
+	}
 
-		plugin.getScoreboardHandler().update(player);
-		giveItems(player);
+	@EventHandler(priority = EventPriority.MONITOR)
+	public void onPlayerQuit(PlayerQuitEvent event) {
+		Player player = event.getPlayer();
+
+		String world = player.getWorld().getName().toLowerCase();
+		if (world.equals(Config.world)) {
+			InventoryUtil.clear(player.getInventory());
+		}
 	}
 
 	@EventHandler(priority = EventPriority.MONITOR)
 	public void onPlayerChangedWorld(PlayerChangedWorldEvent event) {
 		Player player = event.getPlayer();
 
-		String world = player.getWorld().getName().toLowerCase();
-		if (! world.equals(Config.world)) {
+		String newWorld = player.getWorld().getName().toLowerCase();
+		String oldWorld = event.getFrom().getName().toLowerCase();
+
+		if (oldWorld.equals(Config.world)) {
+			InventoryUtil.clear(player.getInventory());
 			plugin.getScoreboardHandler().unregister(player);
 			return;
 		}
 
-		plugin.getScoreboardHandler().update(player);
-		giveItems(player);
+		if (newWorld.equals(Config.world)) {
+			plugin.getScoreboardHandler().update(player);
+			giveItems(player);
+		}
 	}
 
 	@EventHandler(priority = EventPriority.MONITOR)
@@ -110,6 +123,11 @@ public class PlayerListener implements Listener {
 	public void onPlayerMove(PlayerMoveEvent event) {
 		Location from = event.getFrom();
 		Location to = event.getTo();
+
+		String world = from.getWorld().getName().toLowerCase();
+		if (! world.equals(Config.world)) {
+			return;
+		}
 
 		if (Util.coordsEqual(from, to)) {
 			return;

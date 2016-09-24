@@ -87,11 +87,11 @@ public class KitPvP extends SwornPlugin {
 			return;
 		}
 
+		leaderboard = new Leaderboard(this);
+
 		scoreboardHandler = new ScoreboardHandler(this);
 		dataHandler = new DataHandler(this);
 		kitHandler = new KitHandler(this);
-
-		leaderboard = new Leaderboard(this);
 		guiHandler = new GUIHandler(this);
 
 		commandHandler.setCommandPrefix("kitpvp");

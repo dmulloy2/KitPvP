@@ -166,6 +166,9 @@ public class Leaderboard {
 
 			deaths.clear();
 
+			leaderboard.clear();
+			loserboard.clear();
+
 			String format = "&7{0}. {1} &c{2}";
 
 			for (int i = 0; i < sortedKills.size(); i++) {

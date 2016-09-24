@@ -56,7 +56,7 @@ public class Config {
 
 	@Key("messages.prefix")
 	@ValueOptions(ValueOption.FORMAT)
-	public static String prefix = FormatUtil.format("&8&l[&b&lKitPvP&8&l] &8\u00BB &e ");
+	public static String prefix = FormatUtil.format("&8[&bKitPvP&8] \u00BB &e");
 
 	@Key("permissionPrefix")
 	public static String permissionPrefix = "kitpvp.kit.";

@@ -9,6 +9,7 @@ import net.dmulloy2.kitpvp.KitPvP;
 import net.dmulloy2.kitpvp.gui.KitConfirmGUI.Action;
 import net.dmulloy2.kitpvp.kits.Kit;
 import net.dmulloy2.util.FormatUtil;
+import net.dmulloy2.util.NumberUtil;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -30,7 +31,8 @@ public class KitSelectionGUI extends AbstractGUI {
 
 	@Override
 	public int getSize() {
-		return Config.kitSelectionSize;
+		int size = Config.kitSelectionSize;
+		return size > 0 ? size : NumberUtil.roundUp(plugin.getKitHandler().getKits().size(), 9);
 	}
 
 	@Override

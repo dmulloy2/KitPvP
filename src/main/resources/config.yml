@@ -19,6 +19,6 @@ gui:
 forceRespawn: true
 
 messages:
-  prefix: "&8&l[&b&lKitPvP&8&l] &8» &e "
+  prefix: "&8[&bKitPvP&8] » &e"
 
 permissionPrefix: "kitpvp.kit."
