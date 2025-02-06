@@ -1,2 +1,2 @@
 # KitPvP
-Shadowvolt KitPvP plugin
+Bukkit KitPvP plugin
